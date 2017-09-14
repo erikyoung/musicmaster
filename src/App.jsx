@@ -29,7 +29,11 @@ class App extends Component {
 								placeholder="Search for an Artist"
 								value = {this.state.query}
 								onChange={event => {this.setState({query: event.target.value})}}
-								onKeyPress={event => console.log('event.key', event.key)}
+								onKeyPress={event => {
+									if(event.key === 'Enter') {
+										this.search()
+									}
+								}}
 							/>
 							<InputGroup.Addon onClick={() => this.search()} >
 								<Glyphicon glyph="search"></Glyphicon>
